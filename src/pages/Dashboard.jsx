@@ -54,8 +54,7 @@ export default function Dashboard() {
     useEffect(() => {
         let isMounted = true
         const setup = async () => {
-            await pb.collection('pedidos').subscribe('*', () => {
-                if (isMounted) fetchPedidos()
+            setInterval(() => fetchPedidos(), 5000); // cada 5 seg
             })
         }
         setup()
